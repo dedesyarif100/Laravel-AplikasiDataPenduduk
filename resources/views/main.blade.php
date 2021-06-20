@@ -60,7 +60,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Jawa</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="{{ url('prov_jakarta') }}">DKI Jakarta</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Jawa Barat</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="{{ url('prov_jawabarat') }}">Jawa Barat</a></li>
                             <li><i class="fa fa-bars"></i><a href="#">Jawa Tengah</a></li>
                             <li><i class="fa fa-share-square-o"></i><a href="#">Jawa Timur</a></li>
                             <li><i class="fa fa-id-card-o"></i><a href="#">DI Yogyakarta</a></li>
@@ -71,12 +71,14 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Sumatra</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Nangroe Aceh Darusalam</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Sumatra Utara</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="#">Sumatra Barat</a></li>
                             <li><i class="fa fa-bars"></i><a href="#">Sumatra Selatan</a></li>
                             <li><i class="fa fa-share-square-o"></i><a href="#">Sumatra Tengah</a></li>
                             <li><i class="fa fa-id-card-o"></i><a href="#">Jambi</a></li>
                             <li><i class="fa fa-exclamation-triangle"></i><a href="#">Bengkulu</a></li>
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Riau</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="#">Kepulauan Riau</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="#">Lampung</a></li>
                         </ul>
                     </li>
@@ -97,7 +99,19 @@
                             <li><i class="fa fa-bars"></i><a href="#">Sulawesi Selatan</a></li>
                             <li><i class="fa fa-share-square-o"></i><a href="#">Sulawesi tenggara</a></li>
                             <li><i class="fa fa-id-card-o"></i><a href="#">Sulawesi Utara</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="#">Palu</a></li>
+                            <li><i class="fa fa-exclamation-triangle"></i><a href="#">Gorontalo</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>WIL. Kepulauan</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-puzzle-piece"></i><a href="#">Bali</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Nusa Tenggara Barat</a></li>
+                            <li><i class="fa fa-bars"></i><a href="#">Nusa Tenggara Timur</a></li>
+                            <li><i class="fa fa-share-square-o"></i><a href="#">Maluku</a></li>
+                            <li><i class="fa fa-id-card-o"></i><a href="#">Maluku Utara</a></li>
+                            <li><i class="fa fa-exclamation-triangle"></i><a href="#">Papua</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="#">Papua Barat</a></li>
                         </ul>
                     </li>
                 </ul>

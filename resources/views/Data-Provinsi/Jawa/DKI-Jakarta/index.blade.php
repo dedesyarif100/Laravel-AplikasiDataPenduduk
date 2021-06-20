@@ -60,29 +60,37 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($jakarta_locs as $key => $item)
+                        @if ($jakarta_locs->count() > 0)
+                            @foreach ($jakarta_locs as $key => $item)
+                                <tr>
+                                    <td>{{ $jakarta_locs->firstItem() + $key }}</td>
+                                    <td>{{ $item->nama_kabupaten_jakarta }}</td>
+                                    <td>{{ $item->luas_wilayah_jakarta }}</td>
+                                    <td>{{ $item->total_penduduk_jakarta }}</td>
+                                    <td class="text-left">
+                                        <a href="{{ url('prov_jakarta/'.$item->id_provinsi_jakarta) }}"
+                                            class="btn btn-warning btn-sm">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="{{ url('prov_jakarta/'.$item->id_provinsi_jakarta . '/edit') }}"
+                                            class="btn btn-primary btn-sm">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <form action="{{ url('prov_jakarta/'.$item->id_provinsi_jakarta) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
                             <tr>
-                                <td>{{ $jakarta_locs->firstItem() + $key }}</td>
-                                <td>{{ $item->nama_kabupaten_jakarta }}</td>
-                                <td>{{ $item->luas_wilayah_jakarta }}</td>
-                                <td>{{ $item->total_penduduk_jakarta }}</td>
-                                <td class="text-left">
-                                    <a href="{{ url('prov_jakarta/'.$item->id_provinsi_jakarta) }}" class="btn btn-warning btn-sm">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a href="{{ url('prov_jakarta/'.$item->id_provinsi_jakarta.'/edit') }}" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <form action="{{ url('prov_jakarta/'.$item->id_provinsi_jakarta) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
+                                <td colspan="5" class="text-center">Data Kosong</td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
                 <div class="pull-left">
@@ -100,4 +108,26 @@
             </div>
         </div>
     </div>
+
+    {{-- <div class="modal" id="delete" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {{ $item->id_provinsi_jakarta }}
+                <form action="{{ url('prov_jakarta/' . $item->id_provinsi_jakarta) }}" method="POST">
+                    @method('delete')
+                    @csrf
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-warning">Yes, Delete</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">No, Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> --}}
 @endsection

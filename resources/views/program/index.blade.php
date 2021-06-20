@@ -60,28 +60,34 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($programs as $key => $item)
+                        @if ($programs->count() > 0)
+                            @foreach ($programs as $key => $item)
+                                <tr>
+                                    <td>{{ $programs->firstItem() + $key }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->edulevel->name }}</td>
+                                    <td class="text-left    ">
+                                        <a href="{{ url('programs/'.$item->id) }}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="{{ url('programs/'.$item->id.'/edit') }}" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <form action="{{ url('programs/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
                             <tr>
-                                <td>{{ $programs->firstItem() + $key }}</td>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->edulevel->name }}</td>
-                                <td class="text-left    ">
-                                    <a href="{{ url('programs/'.$item->id) }}" class="btn btn-warning btn-sm">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
-                                    <a href="{{ url('programs/'.$item->id.'/edit') }}" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-pencil"></i>
-                                    </a>
-                                    <form action="{{ url('programs/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
-                                        @method('delete')
-                                        @csrf
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
+                                <td colspan="5" class="text-center">Data Kosong</td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
                 <div class="pull-left">

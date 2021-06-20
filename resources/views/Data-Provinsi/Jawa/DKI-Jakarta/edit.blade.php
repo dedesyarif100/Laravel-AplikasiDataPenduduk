@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-md-4 offset-md-4">
                     <form action="{{ url('prov_jakarta/'. $jakarta_locs->id_provinsi_jakarta) }}" method="POST">
-                        @method('patch')
+                        @method('PATCH')
                         @csrf
                         <div class="form-group">
                             <label>Nama Kabupaten</label>

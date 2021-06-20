@@ -15,7 +15,7 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="#">Program</a></li>
+                        <li><a href="{{ url('programs') }}">Program</a></li>
                         <li><a href="#">Trash</a></li>
                         <li class="active">Basic table</li>
                     </ol>
@@ -40,9 +40,16 @@
                         <strong>Data Program Terhapus</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('programs/delete') }}" class="btn btn-danger btn-sm">
+                        {{-- <a href="{{ url('programs/delete') }}" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i> Delete All
-                        </a>
+                        </a> --}}
+                        <form action="{{ url('programs/delete') }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                            @method('delete')
+                            @csrf
+                            <button class="btn btn-danger btn-sm">
+                                Delete Permanent All
+                            </button>
+                        </form>
                         <a href="{{ url('programs/restore') }}" class="btn btn-info btn-sm">
                             <i class="fa fa-undo"></i> Restore All
                         </a>
@@ -73,17 +80,17 @@
                                         <a href="{{ url('programs/restore/'.$item->id) }}" class="btn btn-info btn-sm">
                                             Restore
                                         </a>
-                                        <a href="{{ url('programs/delete/'.$item->id) }}" class="btn btn-danger btn-sm" onclick="return comfirm('Yakin Hapus Permanent?')">
+                                        {{-- <a href="{{ url('programs/delete/'.$item->id) }}" class="btn btn-danger btn-sm" onclick="return comfirm('Yakin Hapus Permanent?')">
                                             Delete Permanent
-                                        </a>
+                                        </a> --}}
                                         {{-- Jika menggunakan Form Action, maka method di Routing harus delete --}}
-                                        {{-- <form action="{{ url('programs/delete/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                        <form action="{{ url('programs/delete/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger btn-sm">
                                                 Delete Permanent
                                             </button>
-                                        </form> --}}
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

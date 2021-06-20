@@ -69,7 +69,7 @@ class ProgramController extends Controller
         //     'info' => $request->info,
         // ]);
 
-        // Cara 3 : Quick Mass Assignment : syarat, field tabel dan nama inputan harus sama
+        // Cara 3 : Quick Mass Assignment : syarat, field tabel dan nama inputan harus sama, dan harus mendefinisikan nama kolomnya di model / Property fillable
         // Program::create($request->all());
 
         // Cara 4 : Gabungan
@@ -151,7 +151,7 @@ class ProgramController extends Controller
                 'info' => $request->info,
             ]);
 
-        return redirect('programs')->with('status', 'Program berhasil ditambah!');
+        return redirect('programs')->with('status', 'Program berhasil diupdate!');
     }
 
     /**
@@ -197,7 +197,7 @@ class ProgramController extends Controller
         } else {
             $programs = Program::onlyTrashed()->restore();
             // echo "False";
-            // return $$programs;
+            // return $programs;
         }
 
         return redirect('programs')->with('status', 'Program berhasil di-restore!');
