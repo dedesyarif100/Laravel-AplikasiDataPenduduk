@@ -16,8 +16,8 @@ class CreateProvJawabaratLocsTable extends Migration
         Schema::create('prov_jawabarat_locs', function (Blueprint $table) {
             $table->id('id_kabupaten_jawabarat');
             $table->string('nama_kabupaten_jawabarat', 100);
-            $table->float('luas_wilayah_jawabarat')->nullable();
-            $table->float('total_penduduk_jawabarat')->nullable();
+            $table->float('luas_wilayah_jawabarat', 30)->nullable();
+            $table->float('total_penduduk_jawabarat', 30)->nullable();
             $table->timestamps();
         });
     }

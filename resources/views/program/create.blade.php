@@ -33,7 +33,7 @@
                     <strong>Tambah Programs</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm">
+                    <a href="{{ url('programs/programs') }}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -42,7 +42,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 offset-md-4">
-                    <form action="{{ url('programs') }}" method="POST">
+                    <form action="{{ url('programs/programs') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label>Nama Program</label>

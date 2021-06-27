@@ -43,17 +43,17 @@
                         {{-- <a href="{{ url('prov_jawabarat/delete') }}" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i> Delete All
                         </a> --}}
-                        <form action="{{ url('prov_jawabarat/delete/') }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                        <form action="{{ url('jawabarat/prov_jawabarat/delete/') }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                             @method('delete')
                             @csrf
                             <button class="btn btn-danger btn-sm">
                                 Delete Permanent
                             </button>
                         </form>
-                        <a href="{{ url('prov_jawabarat/restore') }}" class="btn btn-info btn-sm">
+                        <a href="{{ url('jawabarat/prov_jawabarat/restore') }}" class="btn btn-info btn-sm">
                             <i class="fa fa-undo"></i> Restore All
                         </a>
-                        <a href="{{ url('prov_jawabarat') }}" class="btn btn-secondary btn-sm">
+                        <a href="{{ url('jawabarat/prov_jawabarat') }}" class="btn btn-secondary btn-sm">
                             <i class="fa fa-undo"></i> Back
                         </a>
                     </div>
@@ -79,14 +79,14 @@
                                     <td>{{ $item->luas_wilayah_jawabarat }}</td>
                                     <td>{{ $item->total_penduduk_jawabarat }}</td>
                                     <td class="text-center">
-                                        <a href="{{ url('prov_jawabarat/restore/'.$item->id_kabupaten_jawabarat) }}" class="btn btn-info btn-sm">
+                                        <a href="{{ url('jawabarat/prov_jawabarat/restore/'.$item->id_kabupaten_jawabarat) }}" class="btn btn-info btn-sm">
                                             Restore
                                         </a>
                                         {{-- <a href="{{ url('prov_jawabarat/delete/'.$item->id_kabupaten_jawabarat) }}" class="btn btn-danger btn-sm" onclick="return comfirm('Yakin Hapus Permanent?')">
                                             Delete Kab Permanent
                                         </a> --}}
                                         {{-- Jika menggunakan Form Action, maka method di Routing harus delete --}}
-                                        <form action="{{ url('prov_jawabarat/delete/'.$item->id_kabupaten_jawabarat) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                        <form action="{{ url('jawabarat/prov_jawabarat/delete/'.$item->id_kabupaten_jawabarat) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger btn-sm">

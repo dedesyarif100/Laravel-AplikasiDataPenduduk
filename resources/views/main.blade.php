@@ -45,36 +45,39 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url('home') }}"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                        <a href="{{ url('home') }}"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li>
-                        <a href="{{ url('edulevels') }}"> <i class="menu-icon fa fa-dashboard"></i>Jenjang </a>
+                        <a href="{{ url('edulevels/edulevels') }}"> <i class="menu-icon fa fa-dashboard"></i>Jenjang </a>
                     </li>
                     <li>
-                        <a href="{{ url('programs') }}"> <i class="menu-icon fa fa-dashboard"></i>Program </a>
+                        <a href="{{ url('programs/programs') }}"> <i class="menu-icon fa fa-dashboard"></i>Program </a>
                     </li>
                     <li>
                         <p><i class="menu-icon"></i>Data Provinsi</p>
                     </li>
+                    <li>
+                        <a href="{{ url('provinsi/provinsi') }}"> <i class="menu-icon fa fa-laptop"></i>Data Provinsi</a>
+                    </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Jawa</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="{{ url('prov_jakarta') }}">DKI Jakarta</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="{{ url('prov_jawabarat') }}">Jawa Barat</a></li>
-                            <li><i class="fa fa-bars"></i><a href="#">Jawa Tengah</a></li>
-                            <li><i class="fa fa-share-square-o"></i><a href="#">Jawa Timur</a></li>
-                            <li><i class="fa fa-id-card-o"></i><a href="#">DI Yogyakarta</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="#">Banten</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="{{ url('jakarta/prov_jakarta') }}">DKI Jakarta</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="{{ url('jawabarat/prov_jawabarat') }}">Jawa Barat</a></li>
+                            <li><i class="fa fa-bars"></i><a href="{{ url('jawatengah/prov_jawatengah') }}">Jawa Tengah</a></li>
+                            <li><i class="fa fa-share-square-o"></i><a href="{{ url('jawatimur/prov_jawatimur') }}">Jawa Timur</a></li>
+                            <li><i class="fa fa-id-card-o"></i><a href="{{ url('yogyakarta/prov_yogyakarta') }}">DI Yogyakarta</a></li>
+                            <li><i class="fa fa-exclamation-triangle"></i><a href="{{ url('banten/prov_banten') }}">Banten</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Sumatra</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="#">Nangroe Aceh Darusalam</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Sumatra Utara</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="{{ url('aceh/prov_aceh') }}">Nangroe Aceh Darusalam</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="{{ url('sumatra-utara/prov_sumatra-utara') }}">Sumatra Utara</a></li>
                             <li><i class="fa fa-id-badge"></i><a href="#">Sumatra Barat</a></li>
                             <li><i class="fa fa-bars"></i><a href="#">Sumatra Selatan</a></li>
-                            <li><i class="fa fa-share-square-o"></i><a href="#">Sumatra Tengah</a></li>
+                            <li><i class="fa fa-share-square-o"></i><a href="#">Kepulauan Bangka Belitung</a></li>
                             <li><i class="fa fa-id-card-o"></i><a href="#">Jambi</a></li>
                             <li><i class="fa fa-exclamation-triangle"></i><a href="#">Bengkulu</a></li>
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Riau</a></li>
@@ -112,6 +115,13 @@
                             <li><i class="fa fa-id-card-o"></i><a href="#">Maluku Utara</a></li>
                             <li><i class="fa fa-exclamation-triangle"></i><a href="#">Papua</a></li>
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Papua Barat</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data User</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-id-badge"></i><a href="#">Data Admin</a></li>
+                            <li><i class="fa fa-puzzle-piece"></i><a href="{{ url('data-penduduk/penduduk') }}">Data Penduduk</a></li>
                         </ul>
                     </li>
                 </ul>

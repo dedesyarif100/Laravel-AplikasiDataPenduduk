@@ -39,8 +39,8 @@
                         <strong>Detail Kabupaten</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('prov_jawabarat') }}" class="btn btn-secondary btn-sm">
-                            <i class="fa fa-plus"></i> Back
+                        <a href="{{ url('jawabarat/prov_jawabarat') }}" class="btn btn-secondary btn-sm">
+                            <i class="fa fa-undo"></i> Back
                         </a>
                     </div>
                 </div>

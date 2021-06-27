@@ -1,0 +1,20 @@
+Setiap Nama Provinsi, input dengan nama kabupaten, Buat CRUDnya dengan Laravel
+id_provinsi_jakarta ( int 10 )
+nama_kabupaten_jakarta ( varchar )
+luas_wilayah_jakarta ( bigint )
+total_penduduk_jakarta ( bigint )
+
+id_provinsi_jawabarat ( int 10 )
+nama_kabupaten_jawabarat ( varchar )
+luas_wilayah_jawabarat ( bigint )
+total_penduduk_jawabarat ( bigint )
+
+id_provinsi_jawatengah ( int 10 )
+nama_kabupaten_jawatengah ( varchar )
+luas_wilayah_jawatengah ( bigint )
+total_penduduk_jawatengah ( bigint )
+
+id_provinsi_yogyakarta ( int 10 )
+nama_kabupaten_yogyakarta ( varchar )
+luas_wilayah_yogyakarta ( bigint )	
+total_penduduk_yogyakarta ( bigint )

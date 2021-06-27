@@ -39,10 +39,10 @@
                         <strong>Provinsi Jawa Barat</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('prov_jawabarat/trash') }}" class="btn btn-danger btn-sm">
+                        <a href="{{ url('jawabarat/prov_jawabarat/trash') }}" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i> Trash
                         </a>
-                        <a href="{{ url('prov_jawabarat/create') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('jawabarat/prov_jawabarat/create') }}" class="btn btn-success btn-sm">
                             <i class="fa fa-plus"></i> Add
                         </a>
                     </div>
@@ -68,15 +68,15 @@
                                     <td>{{ $item->luas_wilayah_jawabarat }}</td>
                                     <td>{{ $item->total_penduduk_jawabarat }}</td>
                                     <td class="text-left">
-                                        <a href="{{ url('prov_jawabarat/'.$item->id_kabupaten_jawabarat) }}"
+                                        <a href="{{ url('jawabarat/prov_jawabarat/'.$item->id_kabupaten_jawabarat) }}"
                                             class="btn btn-warning btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ url('prov_jawabarat/'.$item->id_kabupaten_jawabarat . '/edit') }}"
+                                        <a href="{{ url('jawabarat/prov_jawabarat/'.$item->id_kabupaten_jawabarat . '/edit') }}"
                                             class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="{{ url('prov_jawabarat/'.$item->id_kabupaten_jawabarat) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                        <form action="{{ url('jawabarat/prov_jawabarat/'.$item->id_kabupaten_jawabarat) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger btn-sm">

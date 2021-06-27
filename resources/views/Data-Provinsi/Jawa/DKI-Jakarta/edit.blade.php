@@ -33,7 +33,7 @@
                     <strong>Edit DKI Jakarta</strong>
                 </div>
                 <div class="pull-right">
-                    <a href="{{ url('prov_jakarta') }}" class="btn btn-secondary btn-sm">
+                    <a href="{{ url('jakarta/prov_jakarta') }}" class="btn btn-secondary btn-sm">
                         <i class="fa fa-undo"></i> Back
                     </a>
                 </div>
@@ -42,7 +42,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 offset-md-4">
-                    <form action="{{ url('prov_jakarta/'. $jakarta_locs->id_provinsi_jakarta) }}" method="POST">
+                    <form action="{{ url('jakarta/prov_jakarta/'. $jakarta_locs->id_provinsi_jakarta) }}" method="POST">
                         @method('PATCH')
                         @csrf
                         <div class="form-group">

@@ -14,7 +14,7 @@ class Prov_JawabaratController extends Controller
      */
     public function index()
     {
-        $jawabarat_locs = Prov_Jawabarat::paginate(5);
+        $jawabarat_locs = Prov_Jawabarat::orderBy('created_at', 'DESC')->paginate(5);
         return view('Data-Provinsi.Jawa.Jawa-Barat.index', compact('jawabarat_locs'));
     }
 
@@ -49,7 +49,7 @@ class Prov_JawabaratController extends Controller
         // Quick Mass Assignment : syarat, field tabel dan nama inputan harus sama, dan harus mendefinisikan nama kolomnya di model / Property fillable
         Prov_Jawabarat::create($request->all());
 
-        return redirect('prov_jawabarat')->with('status', 'Kabupaten berhasil ditambah!');
+        return redirect('jawabarat/prov_jawabarat')->with('status', 'Kabupaten berhasil ditambah!');
     }
 
     /**
@@ -72,7 +72,7 @@ class Prov_JawabaratController extends Controller
      */
     public function edit($id_kabupaten_jawabarat)
     {
-        $jawabarat_locs =  Prov_Jawabarat::where('id_kabupaten_jawabarat', $id_kabupaten_jawabarat)->first();
+        $jawabarat_locs = Prov_Jawabarat::where('id_kabupaten_jawabarat', $id_kabupaten_jawabarat)->first();
         // return $jawabarat_locs;
         return view('Data-Provinsi.Jawa.Jawa-Barat.edit', compact('jawabarat_locs'));
     }
@@ -102,7 +102,7 @@ class Prov_JawabaratController extends Controller
                 'luas_wilayah_jawabarat' => $request->luas_wilayah_jawabarat,
                 'total_penduduk_jawabarat' => $request->total_penduduk_jawabarat,
             ]);
-        return redirect('prov_jawabarat')->with('status', 'Kabupaten berhasil diupdate!');
+        return redirect('jawabarat/prov_jawabarat')->with('status', 'Kabupaten berhasil diupdate!');
     }
 
     /**
@@ -115,7 +115,7 @@ class Prov_JawabaratController extends Controller
     {
         $deleterows = Prov_Jawabarat::where('id_kabupaten_jawabarat', $id_kabupaten_jawabarat)->delete();
         // return $deleterows;
-        return redirect('prov_jawabarat')->with('status', 'Kabupaten berhasil dihapus!');
+        return redirect('jawabarat/prov_jawabarat')->with('status', 'Kabupaten berhasil dihapus!');
     }
 
     public function trash() {
@@ -130,12 +130,12 @@ class Prov_JawabaratController extends Controller
             $tes = Prov_Jawabarat::onlyTrashed()
                 ->where('id_kabupaten_jawabarat', $id_kabupaten_jawabarat)
                 ->restore();
-            return redirect('prov_jawabarat')->with('status', 'Kabupaten berhasil di-restore!');
+            return redirect('jawabarat/prov_jawabarat')->with('status', 'Kabupaten berhasil di-restore!');
             // echo "True";
             // return $tes;
         } else {
             $tes = Prov_Jawabarat::onlyTrashed()->restore();
-            return redirect('prov_jawabarat')->with('status', 'Semua Data berhasil di-restore!');
+            return redirect('jawabarat/prov_jawabarat')->with('status', 'Semua Data berhasil di-restore!');
             // echo "False";
             // return $tes;
         }
@@ -149,12 +149,14 @@ class Prov_JawabaratController extends Controller
             Prov_Jawabarat::onlyTrashed()
                 ->where('id_kabupaten_jawabarat', $id_kabupaten_jawabarat)
                 ->forceDelete();
+
+            return redirect('jawabarat/prov_jawabarat/trash')->with('status', 'Kabupaten berhasil dihapus permanent!');
             // return true;
         } else {
             Prov_Jawabarat::onlyTrashed()->forceDelete();
+
+            return redirect('jawabarat/prov_jawabarat/trash')->with('status', 'Semua Data berhasil dihapus permanent!');
             // return false;
         }
-
-        return redirect('prov_jawabarat/trash')->with('status', 'Kabupaten berhasil dihapus permanent!');
     }
 }

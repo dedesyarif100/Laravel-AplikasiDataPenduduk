@@ -16,7 +16,7 @@ class ProgramController extends Controller
     public function index()
     {
         // $programs = Program::all();
-        $programs = Program::with('edulevel')->paginate(5);
+        $programs = Program::with('edulevel')->orderBy('created_at', 'DESC')->paginate(5);
         // return $programs;
 
         // $programs = Program::withTrashed()->get(); // Untuk menampilkan data yang dihapus sementara + data utama
@@ -83,7 +83,7 @@ class ProgramController extends Controller
         $program->student_price = $request->student_price; // Kolom yang telah Guarded di Model Program, jika kita tetap ingin me-record value kolom tersebut, bisa didefinisikan seperti code ini
         $program->save();
 
-        return redirect('programs')->with('status', 'Jenjang berhasil ditambah!');
+        return redirect('programs/programs')->with('status', 'Jenjang berhasil ditambah!');
 
     }
 
@@ -98,7 +98,7 @@ class ProgramController extends Controller
         // $program = Program::find($id);
         // $program = Program::where('id', $id)->get();
         $program->makeHidden(['edulevel_id']); // Temporarily Modifying Attribute Visibility
-        return view('program.show', compact('program'));
+        return view('programs/programs.show', compact('program'));
 
         // return $program;
         // return $program;
@@ -151,7 +151,7 @@ class ProgramController extends Controller
                 'info' => $request->info,
             ]);
 
-        return redirect('programs')->with('status', 'Program berhasil diupdate!');
+        return redirect('programs/programs')->with('status', 'Program berhasil diupdate!');
     }
 
     /**

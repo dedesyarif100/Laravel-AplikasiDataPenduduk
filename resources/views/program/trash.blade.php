@@ -43,18 +43,18 @@
                         {{-- <a href="{{ url('programs/delete') }}" class="btn btn-danger btn-sm">
                             <i class="fa fa-trash"></i> Delete All
                         </a> --}}
-                        <form action="{{ url('programs/delete') }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                        <form action="{{ url('programs/programs/delete') }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                             @method('delete')
                             @csrf
                             <button class="btn btn-danger btn-sm">
                                 Delete Permanent All
                             </button>
                         </form>
-                        <a href="{{ url('programs/restore') }}" class="btn btn-info btn-sm">
+                        <a href="{{ url('programs/programs/restore') }}" class="btn btn-info btn-sm">
                             <i class="fa fa-undo"></i> Restore All
                         </a>
-                        <a href="{{ url('programs') }}" class="btn btn-secondary btn-sm">
-                            <i class="fa fa-chevron-left"></i> Back
+                        <a href="{{ url('programs/programs') }}" class="btn btn-secondary btn-sm">
+                            <i class="fa fa-undo"></i> Back
                         </a>
                     </div>
                 </div>
@@ -77,14 +77,14 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->edulevel->name }}</td>
                                     <td class="text-center">
-                                        <a href="{{ url('programs/restore/'.$item->id) }}" class="btn btn-info btn-sm">
+                                        <a href="{{ url('programs/programs/restore/'.$item->id) }}" class="btn btn-info btn-sm">
                                             Restore
                                         </a>
                                         {{-- <a href="{{ url('programs/delete/'.$item->id) }}" class="btn btn-danger btn-sm" onclick="return comfirm('Yakin Hapus Permanent?')">
                                             Delete Permanent
                                         </a> --}}
                                         {{-- Jika menggunakan Form Action, maka method di Routing harus delete --}}
-                                        <form action="{{ url('programs/delete/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                        <form action="{{ url('programs/programs/delete/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger btn-sm">

@@ -15,7 +15,7 @@ class Prov_JakartaController extends Controller
      */
     public function index()
     {
-        $jakarta_locs = DB::table('prov_jakarta_locs')->paginate(5);
+        $jakarta_locs = DB::table('prov_jakarta_locs')->orderBy('created_at', 'DESC')->paginate(5);
         // return $jakarta_locs;
         return view('Data-Provinsi.Jawa.DKI-Jakarta.index', compact('jakarta_locs'));
     }
@@ -54,7 +54,7 @@ class Prov_JakartaController extends Controller
             'total_penduduk_jakarta' => $request->total_penduduk_jakarta,
         ]);
         // return $request;
-        return redirect('prov_jakarta')->with('status', 'Data Berhasil Ditambah!');
+        return redirect('jakarta/prov_jakarta')->with('status', 'Data Berhasil Ditambah!');
     }
 
     /**
@@ -109,7 +109,7 @@ class Prov_JakartaController extends Controller
             'total_penduduk_jakarta' => $request->total_penduduk_jakarta,
         ]);
         // return $request;
-        return redirect('prov_jakarta')->with('status', 'Data Berhasil Diupdate!');
+        return redirect('jakarta/prov_jakarta')->with('status', 'Data Berhasil Diupdate!');
     }
 
     /**
@@ -121,6 +121,6 @@ class Prov_JakartaController extends Controller
     public function destroy($id_provinsi_jakarta)
     {
         DB::table('prov_jakarta_locs')->where('id_provinsi_jakarta', $id_provinsi_jakarta)->delete();
-        return redirect('prov_jakarta')->with('status', 'Data Berhasil Dihapus!');
+        return redirect('jakarta/prov_jakarta')->with('status', 'Data Berhasil Dihapus!');
     }
 }
