@@ -14,9 +14,11 @@ class Prov_JawatimurController extends Controller
      */
     public function index()
     {
-        $jawatimur_locs = Prov_Jawatimur::orderBy('created_at', 'DESC')->paginate(5);
+        // $jawatimur_locs = Prov_Jawatimur::orderBy('created_at', 'DESC')->paginate(5);
+        // return view('Data-Provinsi.Jawa.Jawa-Timur.index', compact('jawatimur_locs'));
 
-        return view('Data-Provinsi.Jawa.Jawa-Timur.index', compact('jawatimur_locs'));
+        $jawatimur_locs = Prov_Jawatimur::all();
+        return response()->json($jawatimur_locs, 200);
     }
 
     /**
@@ -37,24 +39,35 @@ class Prov_JawatimurController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama_kabupaten_jawatimur' => 'required:3',
-            'luas_wilayah_jawatimur' => 'required',
-            'total_penduduk_jawatimur' => 'required',
-        ], [
-            'nama_kabupaten_jawatimur.required' => 'Kabupaten tidak boleh kosong',
-            'luas_wilayah_jawatimur.required' => 'Luas Wilayah tidak boleh kosong',
-            'total_penduduk_jawatimur.required' => 'Total Penduduk tidak boleh kosong',
-        ]);
+        // $request->validate([
+        //     'nama_kabupaten_jawatimur' => 'required:3',
+        //     'luas_wilayah_jawatimur' => 'required',
+        //     'total_penduduk_jawatimur' => 'required',
+        // ], [
+        //     'nama_kabupaten_jawatimur.required' => 'Kabupaten tidak boleh kosong',
+        //     'luas_wilayah_jawatimur.required' => 'Luas Wilayah tidak boleh kosong',
+        //     'total_penduduk_jawatimur.required' => 'Total Penduduk tidak boleh kosong',
+        // ]);
 
         // Cara 2 : Mass Assignment
-        Prov_Jawatimur::create([
+        $success = Prov_Jawatimur::create([
             'nama_kabupaten_jawatimur' => $request->nama_kabupaten_jawatimur,
             'luas_wilayah_jawatimur' => $request->luas_wilayah_jawatimur,
             'total_penduduk_jawatimur' => $request->total_penduduk_jawatimur,
         ]);
 
-        return redirect('jawatimur/prov_jawatimur')->with('status', 'Kabupaten berhasil ditambah!');
+        // $jawatimur_locs = new Prov_Jawatimur;
+        // $jawatimur_locs->nama_kabupaten_jawatimur = $request->nama_kabupaten_jawatimur;
+        // $jawatimur_locs->luas_wilayah_jawatimur = $request->luas_wilayah_jawatimur;
+        // $jawatimur_locs->total_penduduk_jawatimur = $request->total_penduduk_jawatimur;
+        // $success = $jawatimur_locs->save();
+        if (!$success) {
+            return response()->json("not found", 400);
+        } else {
+            return response()->json("Success", 201);
+        }
+
+        // return redirect('jawatimur/prov_jawatimur')->with('status', 'Kabupaten berhasil ditambah!');
     }
 
     /**
@@ -65,8 +78,15 @@ class Prov_JawatimurController extends Controller
      */
     public function show($id_kabupaten_jawatimur)
     {
+        // $jawatimur_locs = Prov_Jawatimur::where('id_kabupaten_jawatimur', $id_kabupaten_jawatimur)->first();
+        // return view('Data-Provinsi.Jawa.Jawa-Timur.show', compact('jawatimur_locs'));
+
         $jawatimur_locs = Prov_Jawatimur::where('id_kabupaten_jawatimur', $id_kabupaten_jawatimur)->first();
-        return view('Data-Provinsi.Jawa.Jawa-Timur.show', compact('jawatimur_locs'));
+        if (is_null($jawatimur_locs)) {
+            return response()->json("not found", 400);
+        } else {
+            return response()->json($jawatimur_locs, 200);
+        }
     }
 
     /**
@@ -101,14 +121,22 @@ class Prov_JawatimurController extends Controller
             'total_penduduk_jawatimur.required' => 'Total Penduduk tidak boleh kosong',
         ]);
 
-        Prov_Jawatimur::where('id_kabupaten_jawatimur', $id_kabupaten_jawatimur)
+        $success = Prov_Jawatimur::where('id_kabupaten_jawatimur', $id_kabupaten_jawatimur)
             ->update([
                 'nama_kabupaten_jawatimur' => $request->nama_kabupaten_jawatimur,
                 'luas_wilayah_jawatimur' => $request->luas_wilayah_jawatimur,
                 'total_penduduk_jawatimur' => $request->total_penduduk_jawatimur,
             ]);
 
-        return redirect('jawatimur/prov_jawatimur')->with('status', 'Kabupaten berhasil diupdate!');
+        // dd($success);
+
+        if (!$success) {
+            return response()->json("Error Saving", 500);
+        } else {
+            return response()->json("Success", 201);
+        }
+
+        // return redirect('jawatimur/prov_jawatimur')->with('status', 'Kabupaten berhasil diupdate!');
     }
 
     /**

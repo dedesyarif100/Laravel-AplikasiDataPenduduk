@@ -7,7 +7,7 @@
     <div class="col-sm-4">
         <div class="page-header float-left">
             <div class="page-title">
-                <h1>Tambah Data Sumatra Utara</h1>
+                <h1>Edit Data Sumatra Utara</h1>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="#">Tambah Data Sumatra Utara</a></li>
+                    <li><a href="#">Edit Data Sumatra Utara</a></li>
                     {{--  <li><a href="#">Table</a></li>  --}}
                     <li class="active">Add</li>
                 </ol>
@@ -30,7 +30,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-left">
-                    <strong>Tambah Data Sumatra Utara</strong>
+                    <strong>Edit Data Sumatra Utara</strong>
                 </div>
                 <div class="pull-right">
                     <a href="{{ url('sumatra-utara/prov_sumatra-utara') }}" class="btn btn-secondary btn-sm">

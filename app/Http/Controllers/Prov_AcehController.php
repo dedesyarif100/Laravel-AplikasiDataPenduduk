@@ -111,7 +111,7 @@ class Prov_AcehController extends Controller
     public function destroy($id_kabupaten_aceh)
     {
         Prov_Aceh::where('id_kabupaten_aceh', $id_kabupaten_aceh)->delete();
-        return redirect('aceh/prov_aceh')->with('status', 'Jenjang berhasil dihapus!');
+        return redirect('aceh/prov_aceh')->with('status', 'Kabupaten berhasil dihapus!');
     }
 
     public function trash() {
@@ -120,7 +120,7 @@ class Prov_AcehController extends Controller
     }
 
     public function restore($id_kabupaten_aceh = null) {
-        if ($id_kabupaten_aceh != null) {
+        if ($id_kabupaten_aceh) {
             Prov_Aceh::onlyTrashed()
                 ->where('id_kabupaten_aceh', $id_kabupaten_aceh)
                 ->restore();

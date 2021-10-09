@@ -42,7 +42,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4 offset-md-4">
-                    <form action="{{ url('provinsi/provinsi/'. $dataProvinsi->id_provinsi) }}" method="POST">
+                    <form action="{{ url('provinsi/provinsi/'. $dataProvinsi->id) }}" method="POST">
                         @method('PATCH')
                         @csrf
                         <div class="form-group">

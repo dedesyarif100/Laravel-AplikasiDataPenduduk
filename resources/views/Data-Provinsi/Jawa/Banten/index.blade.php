@@ -27,6 +27,7 @@
     <div class="content mt-3">
         <div class="animated fadeIn">
 
+            {{-- Flash Message Laravel --}}
             @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}

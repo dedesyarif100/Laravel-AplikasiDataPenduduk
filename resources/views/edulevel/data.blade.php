@@ -40,7 +40,7 @@
                         <strong>Data Jenjang</strong>
                     </div>
                     <div class="pull-right">
-                        <a href="{{ url('edulevels/add') }}" class="btn btn-success btn-sm">
+                        <a href="{{ url('edulevels/edulevels/add') }}" class="btn btn-success btn-sm">
                             <i class="fa fa-plus"></i> Add
                         </a>
                     </div>
@@ -63,10 +63,10 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->desc }}</td>
                                 <td class="text-left">
-                                    <a href="{{ url('edulevels/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
+                                    <a href="{{ url('edulevels/edulevels/edit/'.$item->id) }}" class="btn btn-primary btn-sm">
                                         <i class="fa fa-pencil"></i>
                                     </a>
-                                    <form action="{{ url('edulevels/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                    <form action="{{ url('edulevels/edulevels/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                         @method('delete')
                                         @csrf
                                         <button class="btn btn-danger btn-sm">

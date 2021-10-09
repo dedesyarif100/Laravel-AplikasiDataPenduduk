@@ -15,7 +15,7 @@ class DataProvinsiController extends Controller
      */
     public function index()
     {
-        $dataProvinsi = DataProvinsi::orderBy('id_provinsi', 'DESC')->paginate(5);
+        $dataProvinsi = DataProvinsi::orderBy('id', 'DESC')->paginate(5);
         return view('Provinsi.index', compact('dataProvinsi'));
     }
 
@@ -53,9 +53,9 @@ class DataProvinsiController extends Controller
      * @param  \App\Models\DataProvinsi  $dataProvinsi
      * @return \Illuminate\Http\Response
      */
-    public function show($id_provinsi)
+    public function show($id)
     {
-        $dataProvinsi = DataProvinsi::where('id_provinsi', $id_provinsi)->first();
+        $dataProvinsi = DataProvinsi::where('id', $id)->first();
         return view('provinsi.show', compact('dataProvinsi'));
     }
 
@@ -65,9 +65,9 @@ class DataProvinsiController extends Controller
      * @param  \App\Models\DataProvinsi  $dataProvinsi
      * @return \Illuminate\Http\Response
      */
-    public function edit($id_provinsi)
+    public function edit($id)
     {
-        $dataProvinsi = DataProvinsi::where('id_provinsi', $id_provinsi)->first();
+        $dataProvinsi = DataProvinsi::where('id', $id)->first();
         return view('Provinsi.edit', compact('dataProvinsi'));
     }
 
@@ -78,7 +78,7 @@ class DataProvinsiController extends Controller
      * @param  \App\Models\DataProvinsi  $dataProvinsi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id_provinsi)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'nama_provinsi' => 'required:3',
@@ -86,7 +86,7 @@ class DataProvinsiController extends Controller
             'nama_provinsi.required' => 'Provinsi tidak boleh kosong!'
         ]);
 
-        DataProvinsi::where('id_provinsi', $id_provinsi)->update([
+        DataProvinsi::where('id', $id)->update([
             'nama_provinsi' => $request->nama_provinsi,
         ]);
         return redirect('provinsi/provinsi')->with('status', 'Data berhasil diupdate!');
@@ -98,9 +98,9 @@ class DataProvinsiController extends Controller
      * @param  \App\Models\DataProvinsi  $dataProvinsi
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id_provinsi)
+    public function destroy($id)
     {
-        DataProvinsi::where('id_provinsi', $id_provinsi)->delete();
+        DataProvinsi::where('id', $id)->delete();
         return redirect('provinsi/provinsi')->with('status', 'Data berhasil dihapus!');
     }
 

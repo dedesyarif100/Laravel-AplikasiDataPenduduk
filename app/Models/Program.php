@@ -15,9 +15,10 @@ class Program extends Model
     use SoftDeletes;
 
     protected $guarded = ['student_price'];
-    // guarded, kebalikan dari fillable, kolom yang didefinisikan pada guarded adalah kolom yang tidak boleh di input
+    // guarded, kebalikan dari fillable, kolom yang didefinisikan pada guarded adalah kolom yang tidak boleh di input, Jika tetap di input maka ilainya adalah Null
 
-    protected $hidden = ['created_at', 'updated_at']; // Hidden untuk Contoh Buat API
+    // protected $hidden = ['created_at', 'updated_at']; // Hidden untuk Contoh Buat API
+    // protected $table = 'programs';
 
     public function edulevel()
     {

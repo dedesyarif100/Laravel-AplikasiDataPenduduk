@@ -113,7 +113,7 @@ class ProgramController extends Controller
     public function edit(Program $program)
     {
         $edulevels = Edulevel::all();
-        // return $edulevels;
+        // return $program;
         return view('program.edit', compact('program', 'edulevels'));
     }
 
@@ -126,6 +126,8 @@ class ProgramController extends Controller
      */
     public function update(Request $request, Program $program)
     {
+        $dataPenduduk = new Program;
+        dd($dataPenduduk);
         $request->validate([ // Form Validate Laravel
             'name' => 'required|min:3',
             'edulevel_id' => 'required',
@@ -142,7 +144,7 @@ class ProgramController extends Controller
         // $program->save();
 
         // Cara 2 :
-        Program::where('id', $program->id)
+        $program = Program::where('id', $program->id)
             ->update([
                 'name' => $request->name,
                 'edulevel_id' => $request->edulevel_id,
@@ -150,6 +152,7 @@ class ProgramController extends Controller
                 'student_max' => $request->student_max,
                 'info' => $request->info,
             ]);
+        return $program;
 
         return redirect('programs/programs')->with('status', 'Program berhasil diupdate!');
     }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class EdulevelController extends Controller
 {
     public function data() {
-        $edulevels = DB::table('edulevels')->paginate(5); // Query Builder
+        $edulevels = DB::table('edulevels')->orderBy('id', 'DESC')->paginate(5); // Query Builder
         // return $edulevels;
         // dd($edulevels);
         return view('edulevel.data', ['edulevels'=>$edulevels]);
@@ -33,7 +33,7 @@ class EdulevelController extends Controller
             'name' => $request->name,
             'desc' => $request->desc,
         ]);
-        return redirect('edulevels')->with('status', 'Data Berhasil Ditambah!');
+        return redirect('edulevels/edulevels')->with('status', 'Data Berhasil Ditambah!');
         // return redirect()->away('https://www.udemy.com/course/pemrograman-java-pemula-sampai-mahir/');
         // return $request;
     }
@@ -57,11 +57,11 @@ class EdulevelController extends Controller
                 'name' => $request->name,
                 'desc' => $request->desc,
             ]);
-        return redirect('edulevels')->with('status', 'Data Berhasil Diupdate!');
+        return redirect('edulevels/edulevels')->with('status', 'Data Berhasil Diupdate!');
     }
 
     public function delete($id) {
         DB::table('edulevels')->where('id', $id)->delete();
-        return redirect('edulevels')->with('status', 'Data Berhasil Dihapus!');
+        return redirect('edulevels/edulevels')->with('status', 'Data Berhasil Dihapus!');
     }
 }

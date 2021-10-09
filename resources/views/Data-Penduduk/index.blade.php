@@ -70,7 +70,7 @@
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->tgl_lahir }}</td>
                                     <td>{{ $item->jenis_kelamin }}</td>
-                                    <td>{{ $item->provinsi_id }}</td>
+                                    <td>{{ $item->provinsi->nama_provinsi }}</td>
                                     <td class="text-left">
                                         <a href="{{ url('data-penduduk/penduduk/'.$item->id_penduduk) }}"
                                             class="btn btn-warning btn-sm">

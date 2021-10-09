@@ -52,7 +52,7 @@
                             <tbody>
                                 <tr>
                                     <th>ID Provinsi</th>
-                                    <td>{{ $dataProvinsi->id_provinsi }}</td>
+                                    <td>{{ $dataProvinsi->id }}</td>
                                 </tr>
                                 <tr>
                                     <th>Nama Provinsi</th>

@@ -11,6 +11,10 @@ use App\Http\Controllers\Prov_YogyakartaController;
 use App\Http\Controllers\Prov_BantenController;
 use App\Http\Controllers\Prov_AcehController;
 use App\Http\Controllers\Prov_SumatrautaraController;
+use App\Http\Controllers\Prov_SumatrabaratController;
+use App\Http\Controllers\Prov_SumatraselatanController;
+use App\Http\Controllers\Prov_BangkabelitungController;
+use App\Http\Controllers\Prov_JambiController;
 
 use App\Http\Controllers\DataProvinsiController;
 use App\Http\Controllers\DataPendudukController;
@@ -60,6 +64,9 @@ Route::prefix('provinsi')->group(function () {
     Route::resource('provinsi', DataProvinsiController::class);
 });
 
+
+// Jawa ========================================================================
+
 Route::prefix('jakarta')->group(function () {
     Route::resource('prov_jakarta', Prov_JakartaController::class);
 });
@@ -99,6 +106,9 @@ Route::prefix('banten')->group(function () {
     Route::resource('prov_banten', Prov_BantenController::class);
 });
 
+
+// Sumatra ========================================================================
+
 Route::prefix('aceh')->group(function () {
     Route::get('prov_aceh/trash', [Prov_AcehController::class,'trash']);
     Route::get('prov_aceh/restore/{id_kabupaten_aceh?}', [Prov_AcehController::class,'restore']);
@@ -106,9 +116,37 @@ Route::prefix('aceh')->group(function () {
     Route::resource('prov_aceh', Prov_AcehController::class);
 });
 
-Route::prefix('sumatra-utara')->group(function () {
-    Route::resource('prov_sumatra-utara', Prov_SumatrautaraController::class);
+Route::prefix('sumatrautara')->group(function () {
+    // Query data ini menggunakan Query Builder
+    Route::resource('prov_sumatrautara', Prov_SumatrautaraController::class);
 });
+
+Route::prefix('sumatrabarat')->group(function () {
+    Route::resource('prov_sumatrabarat', Prov_SumatrabaratController::class);
+});
+
+Route::prefix('sumatraselatan')->group(function () {
+    Route::get('prov_sumatraselatan/trash', [Prov_SumatraselatanController::class,'trash']);
+    Route::get('prov_sumatraselatan/restore/{id_kabupaten_sumatraselatan?}', [Prov_SumatraselatanController::class,'restore']);
+    Route::delete('prov_sumatraselatan/delete/{id_kabupaten_sumatraselatan?}', [Prov_SumatraselatanController::class,'delete']);
+    Route::resource('prov_sumatraselatan', Prov_SumatraselatanController::class);
+});
+
+Route::prefix('bangkabelitung')->group(function () {
+    Route::get('prov_bangkabelitung/trash', [Prov_BangkabelitungController::class,'trash']);
+    Route::get('prov_bangkabelitung/restore/{id_kabupaten_bangkabelitung?}', [Prov_BangkabelitungController::class,'restore']);
+    Route::delete('prov_bangkabelitung/delete/{id_kabupaten_bangkabelitung?}', [Prov_BangkabelitungController::class,'delete']);
+    Route::resource('prov_bangkabelitung', Prov_BangkabelitungController::class);
+});
+
+Route::prefix('jambi')->group(function () {
+    Route::get('prov_jambi/trash', [Prov_JambiController::class,'trash']);
+    Route::get('prov_jambi/restore/{id_kabupaten_jambi?}', [Prov_JambiController::class,'restore']);
+    Route::delete('prov_jambi/delete/{id_kabupaten_jambi?}', [Prov_JambiController::class,'delete']);
+    Route::resource('prov_jambi', Prov_JambiController::class);
+});
+
+// Data Penduduk ========================================================================
 
 Route::prefix('data-penduduk')->group(function () {
     Route::resource('penduduk', DataPendudukController::class);

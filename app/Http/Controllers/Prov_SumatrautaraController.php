@@ -122,16 +122,30 @@ class Prov_SumatrautaraController extends Controller
         return redirect('sumatra-utara/prov_sumatra-utara')->with('status', 'Data Berhasil Dihapus!');
     }
 
-    public function trash() {
-        $sumatrautara_locs = DB::table('prov_sumatrautara_locs')->onlyTrashed();
-        return view('Data-Provinsi.Sumatra.Sumatra-Utara.trash', compact('sumatrautara_locs'));
-    }
+    // public function trash() {
+    //     $sumatrautara_locs = DB::table('prov_sumatrautara_locs')->onlyTrashed();
+    //     return view('Data-Provinsi.Sumatra.Sumatra-Utara.trash', compact('sumatrautara_locs'));
+    // }
 
-    public function restore() {
+    // public function restore($id_kabupaten_sumatrautara = null) {
+    //     if ($id_kabupaten_sumatrautara != null) {
+    //         DB::table('prov_sumatrautara_locs')->where('id_kabupaten_sumatrautara')->restore();
+    //         return redirect('sumatra-utara/prov_sumatra-utara')->with('status', 'Data Berhasil di-restore!');
+    //     } else {
+    //         DB::table('prov_sumatrautara_locs')->restore();
+    //         return redirect('sumatra-utara/prov_sumatra-utara')->with('status', 'Semua Data Berhasil di-restore!');
+    //     }
+    // }
 
-    }
-
-    public function delete() {
-
-    }
+    // public function delete($id_kabupaten_sumatrautara = null) {
+    //     if ($id_kabupaten_sumatrautara != null) {
+    //         DB::table('prov_sumatrautara_locs')
+    //             ->where('id_kabupaten_sumatrautara', $id_kabupaten_sumatrautara)
+    //             ->forceDelete();
+    //         return redirect('sumatra-utara/prov_sumatra-utara/trash')->with('status', 'Data Berhasil dihapus permanent!');
+    //     } else {
+    //         DB::table('prov_sumatrautara_locs')->forceDelete();
+    //         return redirect('sumatra-utara/prov_sumatra-utara/trash')->with('status', 'Semua Data Berhasil dihapus permanent!');
+    //     }
+    // }
 }

@@ -35,6 +35,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // ============= Regex Laravel untuk validasi id yang ingin ditampilkan
+        // Route::pattern('id_kabupaten_jawatengah', '[3-5]+');
+        // Route::pattern('id_kabupaten_jawatimur', '[3-5]+');
+
         $this->configureRateLimiting();
 
         $this->routes(function () {

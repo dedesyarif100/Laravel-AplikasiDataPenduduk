@@ -64,15 +64,15 @@
                                     <td>{{ $dataProvinsi->firstItem() + $key }}</td>
                                     <td>{{ $item->nama_provinsi }}</td>
                                     <td class="text-left">
-                                        <a href="{{ url('provinsi/provinsi/'.$item->id_provinsi) }}"
+                                        <a href="{{ url('provinsi/provinsi/'.$item->id) }}"
                                             class="btn btn-warning btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ url('provinsi/provinsi/'.$item->id_provinsi.'/edit') }}"
+                                        <a href="{{ url('provinsi/provinsi/'.$item->id.'/edit') }}"
                                             class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="{{ url('provinsi/provinsi/'.$item->id_provinsi) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
+                                        <form action="{{ url('provinsi/provinsi/'.$item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data?')">
                                             @method('delete')
                                             @csrf
                                             <button class="btn btn-danger btn-sm">

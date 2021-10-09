@@ -11,8 +11,8 @@
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="{{ asset('style/apple-icon.png') }}">
-    <link rel="shortcut icon" href="{{ asset('style/favicon.ico') }}">
+    {{-- <link rel="apple-touch-icon" href="{{ asset('style/apple-icon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('style/favicon.ico') }}"> --}}
 
     <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
@@ -74,18 +74,18 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Sumatra</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="{{ url('aceh/prov_aceh') }}">Nangroe Aceh Darusalam</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="{{ url('sumatra-utara/prov_sumatra-utara') }}">Sumatra Utara</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Sumatra Barat</a></li>
-                            <li><i class="fa fa-bars"></i><a href="#">Sumatra Selatan</a></li>
-                            <li><i class="fa fa-share-square-o"></i><a href="#">Kepulauan Bangka Belitung</a></li>
-                            <li><i class="fa fa-id-card-o"></i><a href="#">Jambi</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="#">Bengkulu</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="{{ url('sumatrautara/prov_sumatrautara') }}">Sumatra Utara</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="{{ url('sumatrabarat/prov_sumatrabarat') }}">Sumatra Barat</a></li>
+                            <li><i class="fa fa-bars"></i><a href="{{ url('sumatraselatan/prov_sumatraselatan') }}">Sumatra Selatan</a></li>
+                            <li><i class="fa fa-share-square-o"></i><a href="{{ url('bangkabelitung/prov_bangkabelitung') }}">Kepulauan Bangka Belitung</a></li>
+                            <li><i class="fa fa-id-card-o"></i><a href="{{ url('jambi/prov_jambi') }}">Jambi</a></li>
+                            {{-- <li><i class="fa fa-exclamation-triangle"></i><a href="#">Bengkulu</a></li>
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Riau</a></li>
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Kepulauan Riau</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="#">Lampung</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="#">Lampung</a></li> --}}
                         </ul>
                     </li>
-                    <li class="menu-item-has-children dropdown">
+                    {{-- <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Kalimantan</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Kalimantan Barat</a></li>
@@ -93,8 +93,8 @@
                             <li><i class="fa fa-bars"></i><a href="#">Kalimantan Timur</a></li>
                             <li><i class="fa fa-share-square-o"></i><a href="#">Kalimantan Tengah</a></li>
                         </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
+                    </li> --}}
+                    {{-- <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Sulawesi</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Sulawesi Barat</a></li>
@@ -104,8 +104,8 @@
                             <li><i class="fa fa-id-card-o"></i><a href="#">Sulawesi Utara</a></li>
                             <li><i class="fa fa-exclamation-triangle"></i><a href="#">Gorontalo</a></li>
                         </ul>
-                    </li>
-                    <li class="menu-item-has-children dropdown">
+                    </li> --}}
+                    {{-- <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>WIL. Kepulauan</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Bali</a></li>
@@ -116,7 +116,7 @@
                             <li><i class="fa fa-exclamation-triangle"></i><a href="#">Papua</a></li>
                             <li><i class="fa fa-puzzle-piece"></i><a href="#">Papua Barat</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Data User</a>
                         <ul class="sub-menu children dropdown-menu">
@@ -134,12 +134,9 @@
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
-
         <!-- Header-->
         <header id="header" class="header">
-
             <div class="header-menu">
-
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
                     <div class="header-left">
@@ -223,18 +220,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="{{ asset('style/images/admin.jpg') }}" alt="User Avatar">
                         </a>
-
                         <div class="user-menu dropdown-menu">
                                 <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
                                 <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
-
                                 <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
                                 <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
-
                     <div class="language-select dropdown" id="language-select">
                         <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
                             <i class="flag-icon flag-icon-us"></i>
@@ -259,15 +251,12 @@
             </div>
         </header><!-- /header -->
         <!-- Header-->
-
         @yield('breadcrumbs')
 
         @yield('content')
 
     </div><!-- /#right-panel -->
-
     <!-- Right Panel -->
-
 
     <script src="{{ asset('style/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
     <script src="{{ asset('style/assets/js/popper.min.js') }}"></script>
